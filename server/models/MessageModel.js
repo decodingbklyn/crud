@@ -1,13 +1,18 @@
-// v-- REPLACE THE EMPTY STRING WITH YOUR LOCAL/MLAB/ELEPHANTSQL URI
-const myURI = '';
+//require mongoose from node modules 
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-// UNCOMMENT THE LINE BELOW IF USING MONGO
-// const URI = process.env.MONGO_URI || myURI;
+const messages = Schema({
+  message: {
+    type: String
+  },
+  password: {
+    type: String
+  },
+  created_at: {
+    type: Date,
+    default: Date.now()
+  },
+})
 
-// UNCOMMENT THE LINE BELOW IF USING POSTGRESQL
-// const URI = process.env.PG_URI || myURI;
-
-
-
-
-module.exports = null; // <-- export your model
+module.exports = mongoose.model('Message Board', messages);
