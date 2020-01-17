@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const messages = Schema({
+const Messages = Schema({
   message: {
-    type: String
+    type: String,
+    required: true 
   },
   password: {
-    type: String
+    type: String,
+    required: true 
   },
   created_at: {
     type: Date,
@@ -14,4 +16,4 @@ const messages = Schema({
   },
 })
 
-module.exports = mongoose.model('Message Board', messages);
+module.exports = mongoose.model('Message Board', Messages);
